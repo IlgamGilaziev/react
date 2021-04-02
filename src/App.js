@@ -1,26 +1,14 @@
 import './App.css';
 import React from 'react';
 import {Route, BrowserRouter, NavLink} from "react-router-dom";
+import {Menu} from "./components/Menu";
+import {PostList} from "./components/PostList";
+import {Post} from "./components/Post";
+import {AddPost} from "./components/AddPost";
+import {Reg} from "./components/Reg";
 
-function Menu(){
-  return(
-      <nav className="nav">
-        <NavLink className="nav-link active" aria-current="page" to="/">Главная</NavLink>
-        <NavLink className="nav-link" to="/about">О нас</NavLink>
-        <NavLink className="nav-link" to="/contact-us">Контакты</NavLink>
-      </nav>
-  )
-}
-function MainPage(){
-    return(
-        <h1>Это главная страница</h1>
-    )
-}
-function About(){
-    return(
-        <h1>О нас</h1>
-    )
-}
+
+
 function ContactUs(){
     return(
         <div className="container my-5">
@@ -35,12 +23,14 @@ function ContactUs(){
 }
 function App() {
   return (
-    <div className="App">
+    <div className="container">
         <BrowserRouter>
           <Menu/>
-          <Route exact path="/" render={()=><MainPage/>}/>
-          <Route path="/about" render={()=><About/>}/>
+          <Route exact path="/" render={()=><PostList/>}/>
           <Route path="/contact-us" render={()=><ContactUs/>}/>
+          <Route path="/addPost" render={()=><AddPost/>}/>
+          <Route path="/reg" render={()=><Reg/>}/>
+          <Route path="/post/:id" render={()=><Post/>}/>
         </BrowserRouter>
     </div>
   );
