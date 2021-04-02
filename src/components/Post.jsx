@@ -14,16 +14,15 @@ export class Post extends React.Component{
         }
     }
     componentDidMount() {
-        const id=(1);
         const formData = new FormData();
-        formData.append("id",id);
-        fetch("http://ilgamgsy.beget.tech/php/getPosts.php",{
+        formData.append("id",1);
+        fetch("http://ilgamgsy.beget.tech/php/getPost.php",{
             method: 'POST',
             body: formData
         })
             .then(response=>response.json())
             .then(result=>{
-                this.state({
+                this.setState({
                     title: result.title,
                     text: result.text,
                     author: result.author,
@@ -34,11 +33,11 @@ export class Post extends React.Component{
 
 
     render() { // Сначала вызывается рендер
-        return <div>
+        return <>
             <h1>{this.state.title}</h1>
             <p>{this.state.text}</p>
             <h6>{this.state.author}</h6>
             <h6>{this.state.date_added}</h6>
-        </div>
+        </>
     }
 }
