@@ -20,7 +20,7 @@ export class Reg extends React.Component{
         formData.append("lastname",this.state.lastname);
         formData.append("email",this.state.email);
         formData.append("pass",this.state.pass);
-        fetch("http://ilgamgsy.beget.tech/php/addPost.php",{
+        fetch("http://ilgamgsy.beget.tech/php/handlerReg.php",{
             method: "POST",
             body: formData
         }).then(response=>response.json())
