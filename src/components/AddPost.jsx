@@ -33,7 +33,7 @@ export class AddPost extends React.Component{
         if (name === "title"){
             const formData = new FormData();
             formData.append("title",value);
-            fetch("http://201.vozhzhaev.ru/php/checkTitle.php",{
+            fetch("http://ilgamgsy.beget.tech/php/checkTitle.php",{
                 method: "POST",
                 body: formData
             }).then(response=>response.json())
