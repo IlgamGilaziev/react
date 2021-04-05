@@ -30,7 +30,7 @@ function App() {
           <Route path="/contact-us" render={()=><ContactUs/>}/>
           <Route path="/addPost" render={()=><AddPost/>}/>
           <Route path="/reg" render={()=><Reg/>}/>
-          <Route path="/post" render={()=><Post/>}/>
+          <Route path="/post/:id" render={(props)=><Post{...props}/>}/>
         </BrowserRouter>
     </div>
   );

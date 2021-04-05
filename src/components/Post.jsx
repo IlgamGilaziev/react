@@ -4,8 +4,8 @@ import React from "react";
 
 
 export class Post extends React.Component{
-    constructor() {
-        super();
+    constructor(props) { //вызывается первым
+        super(props);
         this.state = {
             title: '',
             text: '',
@@ -13,9 +13,9 @@ export class Post extends React.Component{
             date_added: ''
         }
     }
-    componentDidMount() {
+    componentDidMount() { //вызывается третьим
         const formData = new FormData();
-        formData.append("id",1);
+        formData.append("id",this.props.match.params.id);
         fetch("http://ilgamgsy.beget.tech/php/getPost.php",{
             method: 'POST',
             body: formData
@@ -32,7 +32,7 @@ export class Post extends React.Component{
     }
 
 
-    render() { // Сначала вызывается рендер
+    render() { //  //вызывается вторым
         return <>
             <h1>{this.state.title}</h1>
             <p>{this.state.text}</p>
